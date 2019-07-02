@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:include="layout :: htmlhead"></head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<body>
+		<div class="container">
+			<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link disabled border border-danger" href="https://github.com/marcelopickler" target="_blank" tabindex="-1" aria-disabled="true">Github</a>
+  </li>
+  <li class="nav-item">
+  <a class="nav-link text-dark border border-danger"><h7><b>"Te ajudando a lembrar"    </h7></a>
+  </li>
+</ul>
+		
+ 			<div class="border border-dark">
+				<form th:action="@{/lembrete/(form)}" th:object="${lembrete}" action="#" method="post">
+					<input type="hidden" id="txtid" th:field="*{id}" />
+				    <div class="form-group">
+				        <label for="txtconteudo">Conteudo</label>
+				        <input type="text" th:field="*{conteudo}" class="form-control" 
+				        id="txtcontetudo" placeholder="Digite conteudo">
+				    <div class="form-group">
+				        <label for="txtdata_prova">Data da Prova</label>
+				        <input type="text" th:field="*{data_prova}" class="form-control" 
+				        		id="txtdata_prova" placeholder="Data">
+				    </div> 
+				    </div> 
+				    <div class="form-group">
+				        <label for="txtmateria">Materia</label>
+				        <input type="text" th:field="*{materia}" class="form-control" 
+				        id="txtmateria" placeholder="Materia">
+				    </div>
+				    <button type="submit" class="btn btn-dark">Enviar</button>
+				</form>
+			</div>
+		</div>
+		<div th:include="layout :: footer" id="footer">(footer)</div>
+	</body>
+</html>
